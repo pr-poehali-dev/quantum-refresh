@@ -247,14 +247,11 @@ export default function Index() {
         </div>
 
         <div className="flex items-center gap-3">
-          <button
-            onClick={() => navigate("/results")}
-            className="hidden font-mono text-xs text-foreground/60 transition-colors hover:text-foreground md:block"
-          >
-            Результаты
-          </button>
-          <MagneticButton variant="secondary" onClick={() => scrollToSection(4)}>
-            Принять участие
+          <button onClick={() => navigate("/olympiads")} className="hidden font-mono text-xs text-foreground/60 transition-colors hover:text-foreground md:block">Олимпиады</button>
+          <button onClick={() => navigate("/courses")}   className="hidden font-mono text-xs text-foreground/60 transition-colors hover:text-foreground md:block">Курсы</button>
+          <button onClick={() => navigate("/results")}   className="hidden font-mono text-xs text-foreground/60 transition-colors hover:text-foreground md:block">Результаты</button>
+          <MagneticButton variant="secondary" onClick={() => navigate("/profile/student")}>
+            Личный кабинет
           </MagneticButton>
         </div>
       </nav>
@@ -287,12 +284,12 @@ export default function Index() {
               <MagneticButton
                 size="lg"
                 variant="primary"
-                onClick={() => scrollToSection(1)}
+                onClick={() => navigate("/olympiads")}
               >
                 Принять участие
               </MagneticButton>
-              <MagneticButton size="lg" variant="secondary" onClick={() => scrollToSection(4)}>
-                Войти в кабинет
+              <MagneticButton size="lg" variant="secondary" onClick={() => navigate("/profile/student")}>
+                Личный кабинет
               </MagneticButton>
             </div>
           </div>
