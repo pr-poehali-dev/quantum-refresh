@@ -1,5 +1,36 @@
 import { useReveal } from "@/hooks/use-reveal"
 
+const olympiads = [
+  {
+    number: "01",
+    title: "Математика",
+    category: "1–4 класс · Открыта до 15 мая",
+    year: "2025",
+    direction: "left",
+  },
+  {
+    number: "02",
+    title: "Русский язык",
+    category: "1–8 класс · Открыта до 20 мая",
+    year: "2025",
+    direction: "right",
+  },
+  {
+    number: "03",
+    title: "Окружающий мир",
+    category: "1–4 класс · Скоро",
+    year: "2025",
+    direction: "left",
+  },
+  {
+    number: "04",
+    title: "Английский язык",
+    category: "3–8 класс · Открыта до 10 июня",
+    year: "2025",
+    direction: "right",
+  },
+]
+
 export function WorkSection() {
   const { ref, isVisible } = useReveal(0.3)
 
@@ -10,41 +41,19 @@ export function WorkSection() {
     >
       <div className="mx-auto w-full max-w-7xl">
         <div
-          className={`mb-12 transition-all duration-700 md:mb-16 ${
+          className={`mb-10 transition-all duration-700 md:mb-14 ${
             isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
           }`}
         >
           <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
-            Проекты
+            Олимпиады
           </h2>
-          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Избранные работы</p>
+          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Ближайшие и текущие</p>
         </div>
 
-        <div className="space-y-6 md:space-y-8">
-          {[
-            {
-              number: "01",
-              title: "ТехноСтарт",
-              category: "Корпоративный портал",
-              year: "2024",
-              direction: "left",
-            },
-            {
-              number: "02",
-              title: "АльфаТрейд",
-              category: "Финтех платформа",
-              year: "2024",
-              direction: "right",
-            },
-            {
-              number: "03",
-              title: "МедиаПульс",
-              category: "Медиа сервис",
-              year: "2023",
-              direction: "left",
-            },
-          ].map((project, i) => (
-            <ProjectCard key={i} project={project} index={i} isVisible={isVisible} />
+        <div className="space-y-4 md:space-y-6">
+          {olympiads.map((project, i) => (
+            <OlympiadCard key={i} project={project} index={i} isVisible={isVisible} />
           ))}
         </div>
       </div>
@@ -52,7 +61,7 @@ export function WorkSection() {
   )
 }
 
-function ProjectCard({
+function OlympiadCard({
   project,
   index,
   isVisible,
@@ -68,13 +77,15 @@ function ProjectCard({
     return "translate-x-0 opacity-100"
   }
 
+  const isOpen = project.category.includes("Открыта")
+
   return (
     <div
-      className={`group flex items-center justify-between border-b border-foreground/10 py-6 transition-all duration-700 hover:border-foreground/20 md:py-8 ${getRevealClass()}`}
+      className={`group flex items-center justify-between border-b border-foreground/10 py-4 transition-all duration-700 hover:border-foreground/20 md:py-6 ${getRevealClass()}`}
       style={{
-        transitionDelay: `${index * 150}ms`,
+        transitionDelay: `${index * 120}ms`,
         marginLeft: index % 2 === 0 ? "0" : "auto",
-        maxWidth: index % 2 === 0 ? "85%" : "90%",
+        maxWidth: index % 2 === 0 ? "88%" : "93%",
       }}
     >
       <div className="flex items-baseline gap-4 md:gap-8">
@@ -88,7 +99,18 @@ function ProjectCard({
           <p className="font-mono text-xs text-foreground/50 md:text-sm">{project.category}</p>
         </div>
       </div>
-      <span className="font-mono text-xs text-foreground/30 md:text-sm">{project.year}</span>
+      <div className="flex items-center gap-3">
+        <span
+          className={`hidden rounded-full px-3 py-1 font-mono text-xs md:inline-block ${
+            isOpen
+              ? "bg-foreground/15 text-foreground/80"
+              : "bg-foreground/8 text-foreground/50"
+          }`}
+        >
+          {isOpen ? "Открыта" : "Скоро"}
+        </span>
+        <span className="font-mono text-xs text-foreground/30 md:text-sm">{project.year}</span>
+      </div>
     </div>
   )
 }

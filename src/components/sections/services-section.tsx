@@ -15,31 +15,31 @@ export function ServicesSection() {
           }`}
         >
           <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
-            Услуги
+            Курсы
           </h2>
-          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Наши компетенции</p>
+          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Что мы предлагаем</p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 md:gap-x-16 md:gap-y-12 lg:gap-x-24">
           {[
             {
-              title: "Веб-разработка",
-              description: "Создание современных веб-приложений любой сложности",
+              title: "Олимпиадные задания",
+              description: "Интерактивные олимпиады по всем предметам для учеников 1–8 классов с мгновенной проверкой и наградными дипломами",
               direction: "top",
             },
             {
-              title: "UI/UX Дизайн",
-              description: "Проектирование удобных и красивых интерфейсов",
+              title: "Групповые занятия",
+              description: "Занятия с педагогом в мини-группах: подготовка к олимпиадам, углублённое изучение предметов",
               direction: "right",
             },
             {
-              title: "Мобильные приложения",
-              description: "Кроссплатформенная разработка для iOS и Android",
+              title: "Индивидуальное репетиторство",
+              description: "Персональный педагог, гибкое расписание, программа под цели каждого ученика",
               direction: "left",
             },
             {
-              title: "Консалтинг",
-              description: "Техническая экспертиза и стратегическое планирование",
+              title: "Наградные материалы",
+              description: "Именные дипломы, грамоты и сертификаты — скачивайте сразу после олимпиады или заказывайте на печать",
               direction: "bottom",
             },
           ].map((service, i) => (

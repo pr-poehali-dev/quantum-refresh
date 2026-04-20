@@ -11,7 +11,6 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
     >
       <div className="mx-auto w-full max-w-7xl">
         <div className="grid gap-8 md:grid-cols-2 md:gap-16 lg:gap-24">
-          {/* Left side - Story */}
           <div>
             <div
               className={`mb-6 transition-all duration-700 md:mb-12 ${
@@ -19,11 +18,11 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
               }`}
             >
               <h2 className="mb-3 font-sans text-3xl font-light leading-[1.1] tracking-tight text-foreground md:mb-4 md:text-6xl lg:text-7xl">
-                Создаем
+                О проекте
                 <br />
-                будущее
+                <span className="text-foreground/40">Клевер</span>
                 <br />
-                <span className="text-foreground/40">цифровых</span>
+                Маинд
               </h2>
             </div>
 
@@ -34,20 +33,19 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
               style={{ transitionDelay: "200ms" }}
             >
               <p className="max-w-md text-sm leading-relaxed text-foreground/90 md:text-lg">
-                Мы команда дизайнеров, разработчиков и технологов, которые создают исключительные цифровые продукты.
+                Мы создаём условия, в которых каждый ребёнок может раскрыть свои способности — через олимпиады, курсы и персональное сопровождение педагога.
               </p>
               <p className="max-w-md text-sm leading-relaxed text-foreground/90 md:text-lg">
-                Каждый проект — это возможность исследовать новые решения и раздвигать границы возможного.
+                Наши программы разработаны для учеников 1–8 классов и подходят как для самостоятельного участия, так и для организованных групп от учителей и школ.
               </p>
             </div>
           </div>
 
-          {/* Right side - Stats with creative layout */}
           <div className="flex flex-col justify-center space-y-6 md:space-y-12">
             {[
-              { value: "150+", label: "Проектов", sublabel: "Реализовано по всему миру", direction: "right" },
-              { value: "8", label: "Лет", sublabel: "Опыта и инноваций", direction: "left" },
-              { value: "12", label: "Наград", sublabel: "Отраслевое признание", direction: "right" },
+              { value: "50+", label: "Олимпиад", sublabel: "По всем основным предметам", direction: "right" },
+              { value: "1–8", label: "Классы", sublabel: "Программы для каждого возраста", direction: "left" },
+              { value: "1000+", label: "Участников", sublabel: "Дипломов выдано за 2024 год", direction: "right" },
             ].map((stat, i) => {
               const getRevealClass = () => {
                 if (!isVisible) {
@@ -83,11 +81,11 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
           }`}
           style={{ transitionDelay: "750ms" }}
         >
-          <MagneticButton size="lg" variant="primary" onClick={() => scrollToSection?.(4)}>
-            Начать проект
+          <MagneticButton size="lg" variant="primary" onClick={() => scrollToSection?.(1)}>
+            Выбрать олимпиаду
           </MagneticButton>
-          <MagneticButton size="lg" variant="secondary" onClick={() => scrollToSection?.(1)}>
-            Смотреть работы
+          <MagneticButton size="lg" variant="secondary" onClick={() => scrollToSection?.(4)}>
+            Связаться с нами
           </MagneticButton>
         </div>
       </div>
